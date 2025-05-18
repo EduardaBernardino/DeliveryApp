@@ -1,0 +1,72 @@
+1.	Classes:
+ Quais entidades do sistema podem ser representadas como classes?
+-Podemos ter: Estabelecimento, Cardápio, Usuário, Forma de Pagamento, Endereço, com subclasses: Crédito, Débito, Pix e Endereço.
+
+2.	Atributos: 
+Quais características cada classe deve possuir?
+Estabelecimento: nome (String), CNPJ (String), endereço (Endereço), telefone (String), ramo (String).
+Cardápio: nome_ingredientes (String), preco (double), disponível (boolean).
+Usuário: nome (String), telefone (String), endereço (Endereço), CPF (String), email (String), senha (String).
+Forma de Pagamento: Representada por subclasses (Crédito, Débito, Pix), com métodos específicos para cada tipo.
+Endereço: rua (String), bairro (String), cidade (String), estado (String), número (int), CEP (String).
+
+3.	Métodos: 
+Quais ações os objetos dessas classes devem executar?
+Estabelecimento: ativar(), desativar(), atualizarEndereco(), atualizarTelefone().
+Cardápio: adicionarItem (), removerItem(), atualizarItem(), listarItens().
+Usuário: atualizarTelefone(), adicionarEndereco(), alterarSenha(), alterarEmail().
+Forma de Pagamento: Método abstrato realizarPagamento() implementado nas subclasses (Credito, Debito, Pix).
+Endereço: atualizarEndereco().
+
+4. Construtor:
+Quais informações devem ser obrigatórias na criação de cada objeto?
+Estabelecimento: String nome, String CNPJ, String endereço, String telefone, String ramo.
+Cardápio:String nome_ingredientes, double preco.
+Usuário: String nome, String telefone, String endereço, String CPF, String email, String senha.
+Endereço: String rua, String bairro, String cidade, String estado, int numero, String CEP.
+ 
+
+5. Herança:
+Existem entidades que compartilham atributos e comportamentos? Como isso pode ser representado com herança?
+Sim. A classe Pessoa serve como classe base para Usuario e Estabelecimento, pois compartilham os atributos nome, endereço, e telefone.
+
+6. Polimorfismo:
+Algum método pode ter comportamentos diferentes dependendo do tipo de objeto?
+Sim. Exemplo: RealizarPagamento pode aceitar três tipos de transação, credito, débito e pix.
+
+7. Encapsulamento:
+Que dados precisam ser protegidos? Quais atributos devem ser acessados com getters/setters?
+Senha, CPF, CNPJ, telefone, email precisam ser protegidos e devem ser acessados através de métodos getters e setters.
+
+8. Abstração:
+Quais classes representam conceitos genéricos no sistema e quais são as especializações?
+•  FormaPagamento(superclasse abstrata de Crédito, Débito e Pix).
+•  Pessoa(superclasse de Usuário e Estabelecimento).
+•  Endereco(Classe genérica para endereços).
+•  Cardapio (Classe para gerenciar itens).
+
+
+9. Interface:
+10. Em qual situação de ser aplicado o conceito de interface(contrato) no desenvolvimento?
+-FormaPagamento deixa o contrato para os métodos de pagamento.
+
+
+11. Acoplamento e coesão
+O sistema está coeso?
+Sim, as classes se relacionam e estão devidamente preenchidas. O acoplamento está baixo e as classes são independentes
+
+ 12. Controle de exceções
+O sistema cobre as possíveis exceções que podem ocorrer na execução?
+Sim, o controle de exceção está devidamente aplicado para tratar possíveis erros na minha aplicação.
+Ex:
+  try {
+    if (usuario.alterarSenha("senha123", "novaSenha")) {
+        System.out.println("Senha alterada com sucesso!");
+    } else {
+        throw new Exception("Senha atual incorreta!");
+    }
+} catch (Exception e) {
+    System.out.println("Erro: " + e.getMessage());
+}
+
+ Esse exemplo trata o erro de senha inc
